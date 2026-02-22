@@ -1,0 +1,90 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.beck</groupId>
+  <artifactId>San3Mender</artifactId>
+  <version>1.0</version>
+  
+  <!-- package shade:shade -->
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.test.skip>true</maven.test.skip>
+</properties>
+
+  <dependencies>
+<dependency>
+    <groupId>org.eclipse.platform</groupId>
+    <artifactId>org.eclipse.equinox.common</artifactId>
+    <version>3.10.100</version>
+</dependency>
+<dependency>
+    <groupId>org.eclipse.platform</groupId>
+    <artifactId>org.eclipse.core.commands</artifactId>
+    <version>3.9.200</version>
+ <exclusions>
+  <exclusion>
+    <groupId>org.eclipse.platform</groupId>
+    <artifactId>org.eclipse.equinox.common</artifactId>
+  </exclusion>
+ </exclusions>
+</dependency>  
+<!--
+<dependency>
+    <groupId>org.eclipse.platform</groupId>
+    <artifactId>org.eclipse.swt</artifactId>
+    <version>3.108.0</version>
+</dependency>
+-->
+<dependency>
+    <groupId>org.eclipse.platform</groupId>
+    <artifactId>org.eclipse.swt.win32.win32.x86_64</artifactId>
+    <version>3.108.0</version>
+ <exclusions>
+  <exclusion>
+    <groupId>org.eclipse.platform</groupId>
+    <artifactId>org.eclipse.swt</artifactId>
+  </exclusion>
+ </exclusions>
+</dependency>
+
+<dependency>
+    <groupId>org.eclipse.platform</groupId>
+    <artifactId>org.eclipse.jface</artifactId>
+    <version>3.14.100</version>
+ <exclusions>
+  <exclusion>
+    <groupId>org.eclipse.platform</groupId>
+    <artifactId>org.eclipse.swt</artifactId>
+  </exclusion>
+  <exclusion>
+    <groupId>org.eclipse.platform</groupId>
+    <artifactId>org.eclipse.core.commands</artifactId>
+  </exclusion>
+  <exclusion>
+    <groupId>org.eclipse.platform</groupId>
+    <artifactId>org.eclipse.equinox.common</artifactId>
+  </exclusion>
+ </exclusions>
+</dependency>
+  </dependencies>
+  
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>com.beck.san3.mender.San3UI</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
